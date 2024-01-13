@@ -1,0 +1,25 @@
+---
+import Section from "../Section.astro";
+---
+
+<Section
+  color="black"
+  title="Solar y Powerwall"
+  subtitle="Energía para todos"
+  notLink={true}
+  btnSText="Saber más"
+>
+  <img
+    slot="background"
+    src="/solarPanels.webp"
+    alt="Solar y Powerwall"
+    class="hidden min-[600px]:block h-full w-full object-cover object-center"
+  />
+
+  <img
+    slot="background"
+    src="/solarPanels-mobile.webp"
+    alt="Solar y Powerwall - Mobile"
+    class="block min-[600px]:hidden h-full w-full object-cover object-center"
+  />
+</Section>

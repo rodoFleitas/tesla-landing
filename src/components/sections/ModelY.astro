@@ -1,0 +1,20 @@
+---
+import Section from "../Section.astro";
+---
+
+<Section
+  color="white"
+  title="Model Y"
+  subtitle="Concertar una prueba de conducción"
+  btnPText="Entrega más rápida"
+  btnSText="Pedido personalizado"
+  legendMoves={true}
+>
+  <video
+    slot="background"
+    class="object-cover object-center h-full w-full"
+    autoplay
+    muted
+    loop
+    src="/video.webm"></video>
+</Section>

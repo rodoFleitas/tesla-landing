@@ -1,0 +1,26 @@
+---
+import Section from "../Section.astro";
+---
+
+<Section
+  color="black"
+  title="Model 3"
+  reverseButtons={true}
+  btnSText="Pedido personalizado"
+  btnPText="Prueba de conducción"
+  legendMoves={true}
+>
+  <img
+    slot="background"
+    src="/model3.webp"
+    alt="Model 3"
+    class="hidden min-[600px]:block h-full w-full object-cover object-center"
+  />
+
+  <img
+    slot="background"
+    src="/model3-mobile.webp"
+    alt="Model 3"
+    class="block min-[600px]:hidden h-full w-full object-cover object-center"
+  />
+</Section>

@@ -1,0 +1,95 @@
+---
+const {
+  color,
+  title,
+  subtitle,
+  notLink,
+  reverseButtons,
+  btnPText,
+  btnSText,
+  legendMoves,
+} = Astro.props;
+
+const textColor = `text-${color}`;
+const directionButtons = reverseButtons
+  ? `flex-col-reverse min-[600px]:flex-row-reverse`
+  : "flex-col min-[600px]:flex-row";
+---
+
+<section
+  class="landing-section bg-black h-screen w-screen text-center relative overflow-hidden"
+  data-header-color={color}
+>
+  <div class="z-30 relative h-full w-full flex flex-col">
+    <header>
+      <h1
+        class={`title ${textColor} text-[36px] leading-9 min-[600px]:text-[40px] min-[600px]:leading-[48px] font-medium`}
+      >
+        {title}
+      </h1>
+
+      {
+        subtitle ? (
+          <p class={`px-6 pt-[6px] pb-[14px] max-h-10 ${textColor} text-sm`}>
+            {notLink ? (
+              subtitle
+            ) : (
+              <a class={`text-current underline`} href="#">
+                {subtitle}
+              </a>
+            )}
+          </p>
+        ) : null
+      }
+    </header>
+
+    <footer class="flex flex-col flex-grow justify-end">
+      <div
+        class={`flex ${directionButtons} gap-x-6 gap-y-4 justify-center px-6 py-4 mb-4 text-sm [&>a]:min-w-[264px] [&>a]:min-h-[40px] [&>a]:flex [&>a]:items-center [&>a]:justify-center`}
+      >
+        {
+          btnPText ? (
+            <a
+              class="rounded font-medium text-gray-900 px-6 py-1 bg-white"
+              href="#"
+            >
+              {btnPText}
+            </a>
+          ) : null
+        }
+        {
+          btnSText ? (
+            <a
+              class="rounded font-medium text-white px-6 py-1 bg-[rgba(34,34,34,0.65)] backdrop-blur-[8px]"
+              href="#"
+            >
+              {btnSText}
+            </a>
+          ) : null
+        }
+
+        <slot name="customBtn" />
+      </div>
+
+      {
+        legendMoves ? (
+          <a class="px-6 pb-4 text-white text-[12px] underline" href="#">
+            Disponible con Moves III
+          </a>
+        ) : null
+      }
+
+      <slot name="footer-aggregates" />
+    </footer>
+  </div>
+
+  <div class="absolute top-0 bottom-0 h-full w-full z-10">
+    <slot name="background" />
+  </div>
+
+  <style>
+    .title {
+      margin-top: calc(10vh + 24px);
+    }
+  </style>
+</section>

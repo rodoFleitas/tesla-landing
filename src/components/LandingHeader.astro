@@ -1,0 +1,126 @@
+---
+import HelpIcon from "../icons/HelpIcon.astro";
+import ProfileIcon from "../icons/ProfileIcon.astro";
+import WorldIcon from "../icons/WorldIcon.astro";
+import Logo from "./Logo.astro";
+---
+
+<header
+  id="landing-header"
+  class="px-5 min-[1200px]:px-8 flex items-center fixed top-0 w-full justify-between h-full max-h-[56px] z-50"
+>
+  <div class="flex flex-grow basis-0">
+    <a class="px-4" href="#">
+      <Logo />
+    </a>
+  </div>
+
+  <nav class="block min-[1200px]:hidden">
+    <a
+      id="openModal"
+      class="min-h-8 flex items-center rounded text-sm px-4 font-medium py-1 text-current bg-[rgba(0,0,0)] bg-opacity-[0.05] backdrop-blur-[8px] transition-colors duration-200"
+      href="#"
+    >
+      Menú
+    </a>
+  </nav>
+
+  <nav class="hidden min-[1200px]:block">
+    <ul
+      class="flex text-sm [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-1 [&>li>a]:text-current [&>li>a]:transition-colors [&>li>a]:duration-200"
+    >
+      <li>
+        <a
+          href="#"
+          class="hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+          >Vehiculos</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+          >Energia</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+          >Carga</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+          >Descubrir</a
+        >
+      </li>
+      <li>
+        <a
+          href="#"
+          class="hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+          >Tienda</a
+        >
+      </li>
+    </ul>
+  </nav>
+
+  <nav class="hidden min-[1200px]:flex flex-grow basis-0 justify-end">
+    <ul
+      class="flex text-sm [&>li>a]:font-medium [&>li>a]:inline-block [&>li>a]:px-1 [&>li>a]:py-1 [&>li]:flex [&>li]:items-center [&>li>a]:text-current [&>li>a]:transition-colors [&>li>a]:duration-200"
+    >
+      <li>
+        <a
+          href="#"
+          class="mr-1 hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+        >
+          <HelpIcon />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="mr-1 hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+        >
+          <WorldIcon />
+        </a>
+      </li>
+      <li>
+        <a
+          href="#"
+          class="mr-4 hover:bg-[rgba(0,0,0)] rounded hover:bg-opacity-[0.05] hover:backdrop-blur-[8px]"
+        >
+          <ProfileIcon />
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  const $header = document.querySelector("#landing-header") as HTMLElement;
+
+  const observerOpt = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.9,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry;
+
+      if (isIntersecting) {
+        const color = entry.target.getAttribute("data-header-color");
+
+        $header.style.color = color;
+      }
+    });
+  }, observerOpt);
+
+  const $sections = document.querySelectorAll(".landing-section");
+
+  $sections.forEach((section) => observer.observe(section));
+</script>

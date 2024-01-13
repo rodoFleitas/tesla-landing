@@ -1,0 +1,26 @@
+---
+import Section from "../Section.astro";
+---
+
+<Section
+  color="black"
+  title="Model S"
+  subtitle="Explorar inventario"
+  reverseButtons={true}
+  btnSText="Pedido personalizado"
+  btnPText="Prueba de conducción"
+>
+  <img
+    slot="background"
+    src="/modelS.webp"
+    alt="Model S"
+    class="hidden min-[600px]:block h-full w-full object-cover object-center"
+  />
+
+  <img
+    slot="background"
+    src="/modelS-mobile.webp"
+    alt="Model S - Mobile"
+    class="block min-[600px]:hidden h-full w-full object-cover object-center"
+  />
+</Section>

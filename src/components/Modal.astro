@@ -1,0 +1,113 @@
+---
+import CloseIcon from "../icons/CloseIcon.astro";
+import ChevronIcon from "../icons/ChevronIcon.astro";
+import ProfileIcon from "../icons/ProfileIcon.astro";
+import WorldIcon from "../icons/WorldIcon.astro";
+---
+
+<div
+  id="modal-menu"
+  class="relative z-50 hidden min-[1200px]:hidden"
+  aria-labelledby="modal-title"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="fixed inset-0 z-50 w-screen h-screen overflow-y-auto bg-white">
+    <div class="flex items-center justify-end min-h-16 p-4">
+      <button id="closeModal" class="btn p-1 hover:transition-colors">
+        <CloseIcon />
+      </button>
+    </div>
+
+    <div class="flex flex-col px-5 pb-12 pt-4">
+      <ul
+        class="[&>li]:mb-4 [&>li>button]:w-full [&>li>button]:min-h-[52px] [&>li>button]:py-4 [&>li>button]:px-2 [&>li>button>p]:font-medium"
+      >
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <p>Vehículos</p>
+            <ChevronIcon />
+          </button>
+        </li>
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <p>Energía</p>
+            <ChevronIcon />
+          </button>
+        </li>
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <p>Carga</p>
+            <ChevronIcon />
+          </button>
+        </li>
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <p>Descubrir</p>
+            <ChevronIcon />
+          </button>
+        </li>
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <p>Tienda</p>
+          </button>
+        </li>
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <p>Soporte</p>
+          </button>
+        </li>
+        <li>
+          <button class="btn text-[17px] text-current hover:transition-colors">
+            <div class="flex">
+              <div>
+                <WorldIcon class="mr-2" />
+              </div>
+              <div class="flex flex-col items-center justify-start">
+                <p>España</p>
+                <p class="text-sm customFont">español</p>
+              </div>
+            </div>
+
+            <ChevronIcon />
+          </button>
+        </li>
+        <li>
+          <button
+            class="btn profilebtn text-[17px] text-current hover:transition-colors"
+          >
+            <ProfileIcon class="mr-2" />
+            <p>Cuenta</p>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 4px;
+  }
+
+  .profilebtn {
+    justify-content: flex-start;
+  }
+
+  .btn p {
+    margin: 0rem 0.25rem;
+  }
+
+  .btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    transition-duration: 300ms;
+  }
+
+  .customFont {
+    font-weight: 200;
+  }
+</style>
